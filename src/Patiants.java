@@ -1,112 +1,99 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.*;
 
 public class Patiants
 {
-
-    private int id;
-    private String name_of_patient;
-    private String birthDate;
-    private String adress;
-    private String date_of_gradute_the_internal_patiant;
-    private ArrayList <TreatmentRecord> treatmentRecords;
-
-    private ArrayList <Patiants> patiants=new ArrayList<Patiants>();
-
-
     Scanner in=new Scanner(System.in);
-    public Patiants(int id, String name_of_patient , String adress , String birthDate, ArrayList<TreatmentRecord> treatmentRecords)
-    {
-        this.id = id;
-        this.adress=adress;
-        this.name_of_patient = name_of_patient;
-        this.birthDate = birthDate;
-        this.treatmentRecords = treatmentRecords;
-    }
-    public Patiants(int id, String name_of_patient , String adress , String birthDate)
-    {
-
-        this.id = id;
-        this.adress=adress;
-        this.name_of_patient = name_of_patient;
-        this.birthDate = birthDate;
-    }
+    private String name_of_patient;
+    private int id_of_patient;
+    private String address_of_patient;
+    private String birth_date_of_patient;
+    private String date_of_graduation;
+    private String date_of_accept;
+    ArrayList <Patiants>enternal_patiants = new ArrayList<Patiants>();
+    ArrayList<Patiants> external_patiants = new ArrayList<Patiants>();
     public Patiants(){}
 
-    public int getId() {
-        return id;
+    public Patiants(String name_of_patient , int id_of_patient , String address_of_patient  , String birth_date_of_patient , String date_of_graduation)
+    {
+        this.name_of_patient = name_of_patient;
+        this.id_of_patient = id_of_patient;
+        this.address_of_patient = address_of_patient;
+        this.birth_date_of_patient = birth_date_of_patient;
+        this.date_of_graduation=date_of_graduation;
+    }
+    public Patiants(int id_of_patient , String name_of_patient  , String address_of_patient  , String birth_date_of_patient , String date_of_accept)
+    {
+        this.name_of_patient = name_of_patient;
+        this.id_of_patient = id_of_patient;
+        this.address_of_patient = address_of_patient;
+        this.birth_date_of_patient = birth_date_of_patient;
+        this.date_of_accept=date_of_accept;
+
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getName_of_patient() {
         return name_of_patient;
     }
 
-    public void setName_of_patient(String name_of_patient) {
-        this.name_of_patient = name_of_patient;
+    public int getId_of_patient() {
+        return id_of_patient;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getAddress_of_patient() {
+        return address_of_patient;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public String getBirth_date_of_patient() {
+        return birth_date_of_patient;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getDate_of_graduation() {
+        return date_of_graduation;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public String getDate_of_accept() {
+        return date_of_accept;
     }
 
-
-    //---------------------------------------------------------------------------------------------
-
-    public void addPatiant()
+    public void addPatient()
     {
-        System.out.println("IF YOU WANT TO ADD INTERNAL PATIENT ENTRE (1)");
-        System.out.println("IF YOU WANT TO ADD EXTERNAL PATIENT ENTRE (2)");
-        int chois=in.nextInt();
-
-        System.out.println("Please entre the name of the patient");
-        name_of_patient=in.next();
-        System.out.println("Please enter the ID of the patient");
-        id=in.nextInt();
-        System.out.println("Please enter the Adress of the patient");
-        adress=in.next();
-        System.out.println("Please enter the BIRTH DATE of the patient");
-        birthDate=in.next();
+        System.out.println("if you want to add INTERNAL patient press 1");
+        System.out.println("if you want to add EXTERNAL patient press 2");
+        int chois =in.nextInt();
 
         if(chois==1)
         {
-
-            System.out.println("Please enter the date_of_gradute_the_internal_patiant ");
-            date_of_gradute_the_internal_patiant=in.next();
-
-            TreatmentRecord ot=new TreatmentRecord();
-            ot.eturnInternalTreatmentRecordsList();
-
-            System.out.println(" *** THE DETAILS OF INTERNAL PATIANT ***");
-            for (TreatmentRecord t:treatmentRecords)
-            {
-                System.out.println(t);
-            }
+            System.out.println("Please entre the name of the ENTERNAL patient you want to add it :");
+            name_of_patient = in.next();
+            System.out.println("Please entre the adress of the ENTERNAL patient you want to add it :");
+            address_of_patient = in.next();
+            System.out.println("Please entre the birth date of the ENTERNAL patient you want to add it :");
+            birth_date_of_patient = in.next();
+            System.out.println("Please entre the id of the ENTERNAL patient you want to add it :");
+            id_of_patient = in.nextInt();
+            System.out.println("Please enter the graduation of the ENTERNAL patient you want to add :");
+            date_of_graduation=in.next();
+            enternal_patiants.add(new Patiants(name_of_patient , id_of_patient , address_of_patient , birth_date_of_patient , date_of_graduation));
 
         }
+        else
+        {
+            System.out.println("Please entre the name of the EXTERNAL patient you want to add it :");
+            name_of_patient = in.next();
+            System.out.println("Please entre the adress of the EXTERNAL patient you want to add it :");
+            address_of_patient = in.next();
+            System.out.println("Please entre the birth date of the EXTERNAL patient you want to add it :");
+            birth_date_of_patient = in.next();
+            System.out.println("Please entre the id of the EXTERNAL patient you want to add it :");
+            id_of_patient = in.nextInt();
+            System.out.println("Please enter the accept date of the EXTERNAL patient you want to add it :");
+            date_of_accept=in.next();
+            external_patiants.add(new Patiants(id_of_patient , name_of_patient , address_of_patient , birth_date_of_patient , date_of_accept));
 
-
-
-
-
-
-
-        //patiants.add(new Patiants(id , name_of_patient,adress,birthDate));
+        }
 
     }
 

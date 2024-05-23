@@ -9,6 +9,7 @@ public class Main
         System.out.println("if you want to Fix any doctor entre : (3)");
         System.out.println("if you want to calculate the number of dealings doctors entre : (4)");
         System.out.println("if you want to display all the doctors in hospital entre : (5)");
+        System.out.println("if you want to add patient entre : (6)");
     }
     public static void main(String[] args)
     {
@@ -40,19 +41,20 @@ public class Main
             case 4:
                 System.out.println("the NUMBER of the dealings doctors is :" + d1.countOf_DealingDoctor());
             case 5:
-                //d1.addDoctor();
-                d1.addDoctor();
-                p1.addPatiant();
-
-
-
-
-
-
-
-
-
+                d1.displayAllDoctorsInHospital();
             case 6:
+                p1.addPatient();
+
+
+
+
+
+
+
+
+
+
+            case 7:
                 System.exit(0);
 
 
