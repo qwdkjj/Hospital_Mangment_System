@@ -13,15 +13,15 @@ public class DoctorDeal extends Doctor
     ArrayList <DoctorDeal> DoctorTrains=new ArrayList();
 
 
-    public DoctorDeal(int cost , String dateOfDecade,String name, int id, String speciality, String address,String birth,int salary)
+    public DoctorDeal(int cost , String dateOfDecade,String name, int id, String speciality, String address,String birth,int salary ,int departmentId)
     {
-        super(name, id, speciality, address,birth,salary);
+        super(name, id, speciality, address,birth,salary,departmentId);
         this.cost = cost;
         this.dateOfDecade=dateOfDecade;
     }
-    public DoctorDeal( String name, int id, String speciality, String address,String birth,int salaryOfTranings,String dateOfBeginning,String dateOfEnd)
+    public DoctorDeal( String name, int id, String speciality, String address,String birth,int salaryOfTranings,String dateOfBeginning,String dateOfEnd,int departmentId)
     {
-        super(name, id, speciality, address,birth,salaryOfTranings);
+        super(name, id, speciality, address,birth,salaryOfTranings,departmentId);
         this.dateOfBeginning=dateOfBeginning;
         this.dateOfEnd=dateOfEnd;
     }
@@ -36,6 +36,8 @@ public class DoctorDeal extends Doctor
             name = in.next();
             System.out.println("entre the id of the doctorDealing");
             id = in.nextInt();
+            System.out.println("entre the department id of the doctorDealing");
+            departmentId=in.nextInt();
             System.out.println("entre the specialization of the doctorDealing you want to add it");
             speciality = in.next();
             System.out.println("entre the address of the doctorDealing");
@@ -44,7 +46,7 @@ public class DoctorDeal extends Doctor
             birth = in.next();
             System.out.println("entre the date of Beginning of the doctorDealing");
             dateOfDecade = in.next();
-            DoctorDeal.add(new DoctorDeal(cost, dateOfDecade, name, id, speciality, address, birth, salary / 2));
+            DoctorDeal.add(new DoctorDeal(cost, dateOfDecade, name, id, speciality, address, birth, salary / 2,departmentId));
             countOfDealingDoctors++;
         }
         else
@@ -53,6 +55,8 @@ public class DoctorDeal extends Doctor
             name = in.next();
             System.out.println("entre the id of the trainingDoctor");
             id = in.nextInt();
+            System.out.println("entre the department ID of the trainingDoctor");
+            departmentId=in.nextInt();
             System.out.println("entre the specialization of the trainingDoctor you want to add it");
             speciality = in.next();
             System.out.println("entre the address of the trainingDoctor");
@@ -63,7 +67,7 @@ public class DoctorDeal extends Doctor
             dateOfBeginning=in.next();
             System.out.println("entre the date of the end");
             dateOfEnd = in.next();
-            DoctorTrains.add(new DoctorDeal(name , id,speciality,address,birth, DoctorTrainingSalary(),dateOfBeginning,dateOfEnd));
+            DoctorTrains.add(new DoctorDeal(name , id,speciality,address,birth, DoctorTrainingSalary(),dateOfBeginning,dateOfEnd,departmentId));
 
         }
     }
@@ -100,25 +104,28 @@ public class DoctorDeal extends Doctor
 
     public void displayD()
     {
-        System.out.print("the name of doctorDeal : " + name + "  ");
-        System.out.println("the id of the doctorDealing : " + id + "  ");
-        System.out.print("the specialization of the doctorDealing : " + speciality + "  ");
-        System.out.println("the address of the doctorDealing : " + address + "  ");
-        System.out.print("entre the birth date of the doctorDealing : " + birth + "  ");
-        System.out.println("the date of Beginning of the doctorDealing : " + dateOfDecade + "  ");
-        System.out.print("the cost of the doctorDealing : " + cost + "  ");
-
+        System.out.print("DOCTOR DEAL{ NAME='" + name + "' , ");
+        System.out.print("ID='" + id + "' , ");
+        System.out.print("SPECIALIZATION='" + speciality + "' , ");
+        System.out.print("ADDRESS='" + address + "' , ");
+        System.out.print("BIRTH='" + birth + "' , ");
+        System.out.print("DATE_OF_BEG='" + dateOfDecade + "' , ");
+        System.out.print("COST='" + cost + "' , ");
+        System.out.print("DEPARTMENT_ID='" + departmentId + "' }");
+        System.out.println();
     }
     public void displayT()
     {
-        System.out.print("the name of doctorTrain : " + name + "  ");
-        System.out.println("the id of the doctorTrain : " + id + "  ");
-        System.out.print("the specialization of the doctorTrain : " + speciality + "  ");
-        System.out.println("the address of the doctorTrain : " + address + "  ");
-        System.out.print("entre the birth date of the doctorTrain : " + birth + "  ");
-        System.out.println(", dateOfBeginning='" + dateOfBeginning);
-        System.out.println(", dateOfEnd='" + dateOfEnd);
-        System.out.println("salaryOfTranings=" + salaryOfTranings);
+        System.out.print("DOCTOR TRAIN{ NAME='" + name + "' , ");
+        System.out.print("ID='" + id + "' , ");
+        System.out.print("SPECIALIZATION='" + speciality + "' , ");
+        System.out.print("ADDRESS='" + address + "' , ");
+        System.out.print("BIRTH='" + birth + "' , ");
+        System.out.print("dateOfBeginning='" + dateOfBeginning+ "' , ");
+        System.out.print("dateOfEnd='" + dateOfEnd + "' , ");
+        System.out.print("salaryOfTraning='" + salaryOfTranings + "' , ");
+        System.out.print("DEPARTMENT_ID='" + departmentId + " }");
+        System.out.println();
     }
 
     public void deleteDoctor()
@@ -137,6 +144,7 @@ public class DoctorDeal extends Doctor
                 DoctorDeal.remove(DO_delete);
                 count++;
                 System.out.println("doctor who has name :" + name + " is deleted successfully");
+                countOfDealingDoctors--;
                 break;
             }
         }
@@ -166,7 +174,7 @@ public class DoctorDeal extends Doctor
                     DO_delete2 = d;
                     String name=d.getName();
                     docs.remove(DO_delete2);
-                    System.out.println("doctor who has name :"+ name + " is deleted successfully");
+                    System.out.println("doctor who has name '"+ name + "' is deleted successfully");
                     break;
                 }
             }
@@ -227,12 +235,15 @@ public class DoctorDeal extends Doctor
 
     public void displayAllDoctorsInHospital()
     {
-        System.out.println("the dealings doctors in our hospital :");
+        System.out.println("*** the dealings doctors in our hospital ***" + "\n");
         displayDoctorsDealing();
-        System.out.println("the trainings doctors in our hospital :");
+        System.out.println();
+        System.out.println("*** the trainings doctors in our hospital ***"+ "\n");
         displayDoctorsTraining();
-        System.out.println("the General Fixed doctors in our hospital :");
+        System.out.println();
+        System.out.println("*** the General Fixed doctors in our hospital ***"+ "\n");
         displayDoctorsFixed();
+        System.out.println();
     }
 
 

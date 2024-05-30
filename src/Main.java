@@ -3,64 +3,96 @@ public class Main
 {
     public static void print()
     {
-        System.out.println("************ Welcome to aur hospital mangment system ***********");
-        System.out.println("if you want to add doctor enter : (1)");
-        System.out.println("if you want to delete doctor entre : (2)");
-        System.out.println("if you want to Fix any doctor entre : (3)");
-        System.out.println("if you want to calculate the number of dealings doctors entre : (4)");
-        System.out.println("if you want to display all the doctors in hospital entre : (5)");
-        System.out.println("if you want to add patient entre : (6)");
+        System.out.println("************ Welcome to our hospital mangment system ***********");
+        System.out.println("1- if you want to add doctor enter ");
+        System.out.println("2- if you want to delete doctor entre ");
+        System.out.println("3- if you want to Fix any doctor entre ");
+        System.out.println("4- if you want to calculate the number of dealings doctors entre ");
+        System.out.println("5- if you want to display all the doctors in hospital entre ");
+        System.out.println("6- if you want to add patient entre ");
+        System.out.println("7- if you want to delete patient entre ");
+        System.out.println("8- if you want to display ALL the patient in HOSPITAL entre ");
+        System.out.println("9- if you want to add a new Treatment Record entre ");
+        System.out.println("10- if you want to display the internal treatment record entre ");
+        System.out.println("11- if you want to display the external treatment record entre ");
+        System.out.println("12- if you want to display ALL the treatment records for any particular patient entre ");
+        System.out.println("13- if you want to EXIT ");
     }
     public static void main(String[] args)
     {
         Scanner in=new Scanner(System.in);
+        boolean end=true;
 
         DoctorDeal d1 = new DoctorDeal();
         Patiants p1=new Patiants();
+        TreatmentRecord t1=new TreatmentRecord();
 
 
-        print();
-        int chois=in.nextInt();
-        switch (chois)
+
+        while(end)
         {
-            case 1:
-                System.out.println("  if you want to add deal doctor press : (1)");
-                System.out.println("  if you want to add train doctor press : (2)");
-                int c=in.nextInt();
-                System.out.println("add the doctor details please :");
-                if(c==1||c==2)
-                {
-                    d1.addDoctorDeal(c);
-                }
-                else
-                    d1.addDoctor();
-            case 2:
-                d1.deleteDoctor();
-            case 3:
-                d1.FixDoctor();
-            case 4:
-                System.out.println("the NUMBER of the dealings doctors is :" + d1.countOf_DealingDoctor());
-            case 5:
-                d1.displayAllDoctorsInHospital();
-            case 6:
-                p1.addPatient();
+            print();
+            int chois=in.nextInt();
+
+            switch (chois)
+            {
+                case 1:
+                    System.out.println("  if you want to add DEAL doctor press : (1)");
+                    System.out.println("  if you want to add TRAINEE doctor press : (2)");
+                    System.out.println("  if you want to add GENERAL doctor press : (3)");
+                    int c = in.nextInt();
+                    if (c == 1 || c == 2) {
+                        System.out.println("add the doctor details please :");
+                        t1.addDoctorDeal(c);
+                    } else if(c==3) {
+                        System.out.println("add the doctor details please :");
+                        t1.addDoctor();
+                    }
+                    break;
+                case 2:
+                    t1.deleteDoctor();
+                    break;
+                case 3:
+                    t1.FixDoctor();
+                    break;
+                case 4:
+                    System.out.println("the NUMBER of the dealings doctors is :" + t1.countOf_DealingDoctor());
+                    break;
+                case 5:
+                    t1.displayAllDoctorsInHospital();
+                    break;
+                case 6:
+                    t1.addPatient();
+                    break;
+                case 7:
+                    t1.deletePatient();
+                    break;
+                case 8:
+                    t1.displayAllPatients();
+                    break;
+                case 9:
+                    t1.addNewTreatmentRecord();
+                    break;
+                case 10:
+                    t1.displayTreatmentInternal();
+                    break;
+                case 11:
+                    t1.displayTreatmentExternal();
+                    break;
+                case 12:
+                    t1.displayTreatmentRecordsForParticularPatient();
+                    break;
 
 
+                case 13:
+                    System.exit(0);
+                    end=false;
+                    break;
 
 
-
-
-
-
-
-
-            case 7:
-                System.exit(0);
-
+            }
 
         }
-
-
 
 
 
