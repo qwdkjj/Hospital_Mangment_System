@@ -46,8 +46,11 @@ public class DoctorDeal extends Doctor
             birth = in.next();
             System.out.println("entre the date of Beginning of the doctorDealing");
             dateOfDecade = in.next();
-            DoctorDeal.add(new DoctorDeal(cost, dateOfDecade, name, id, speciality, address, birth, salary / 2,departmentId));
+            System.out.println("entre the cost of the doctorDealing");
+            cost= in.nextInt();
+            DoctorDeal.add(new DoctorDeal(cost/2, dateOfDecade, name, id, speciality, address, birth, salary / 2,departmentId));
             countOfDealingDoctors++;
+            System.out.println("the doctor who has name : " + name + " is added successfully !");
         }
         else
         {
@@ -67,8 +70,8 @@ public class DoctorDeal extends Doctor
             dateOfBeginning=in.next();
             System.out.println("entre the date of the end");
             dateOfEnd = in.next();
-            DoctorTrains.add(new DoctorDeal(name , id,speciality,address,birth, DoctorTrainingSalary(),dateOfBeginning,dateOfEnd,departmentId));
-
+            DoctorTrains.add(new DoctorDeal(name , id,speciality,address,birth, DoctorTrainingSalary() ,dateOfBeginning,dateOfEnd,departmentId));
+            System.out.println("the doctor who has name : " + name + " is added successfully !");
         }
     }
 
@@ -199,6 +202,7 @@ public class DoctorDeal extends Doctor
                 DoctorDeal.remove(deals);
                 docs.add(k);
                 System.out.println("the doctor is FIXED SUCCESSFUL");
+                countOfDealingDoctors--;
                 count++;
                 break;
 

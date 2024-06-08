@@ -84,7 +84,7 @@ public class Patiants extends DoctorDeal
 
             enternal_patiants.add(new Patiants(name_of_patient , id_of_patient , address_of_patient , birth_date_of_patient , date_of_graduation ));
             //------------------------
-
+            System.out.println("the patient who has name : " + name_of_patient + " added successfully");
             //------------------------
         }
         else
@@ -101,7 +101,7 @@ public class Patiants extends DoctorDeal
             date_of_accept=in.next();
             external_patiants.add(new Patiants(id_of_patient , name_of_patient , address_of_patient , birth_date_of_patient , date_of_accept));
 
-
+            System.out.println("the patient who has name : " + name_of_patient + " added successfully");
         }
 
     }
@@ -121,6 +121,7 @@ public class Patiants extends DoctorDeal
             if(patient.getId_of_patient() == chois)
             {
                 po_1=patient;
+                System.out.println("the patient who has name : " +  patient.getName_of_patient()  + " is deleted successfully");
                 enternal_patiants.remove(po_1);
                 count++;
                 break;
@@ -143,7 +144,8 @@ public class Patiants extends DoctorDeal
                 if (patient.getId_of_patient() == chois)
                 {
                     po_2=patient;
-                    enternal_patiants.remove(po_2);
+                    System.out.println("the patient who has name : " + patient.getName_of_patient() + " is deleted successfully");
+                    external_patiants.remove(po_2);
                     break;
                 }
                 else
@@ -178,7 +180,6 @@ public class Patiants extends DoctorDeal
         System.out.println("the adress of the ENTERNAL patient :" + address_of_patient);
         System.out.println("the id of the ENTERNAL patient :" + id_of_patient);
         System.out.println("the graduation of the ENTERNAL patient :" + date_of_graduation);
-        System.out.println("the department ID of the ENTERNAL patient :" + department_id_of_patient);
     }
 
     public void displayEx()
@@ -187,7 +188,7 @@ public class Patiants extends DoctorDeal
         System.out.println("the birth date of EXTERNAL patient :" + birth_date_of_patient);
         System.out.println("the adress of the EXTERNAL patient :" + address_of_patient);
         System.out.println("the id of the EXTERNAL patient :" + id_of_patient);
-        System.out.println("the accept date of the EXTERNAL patient :" + department_id_of_patient);
+        System.out.println("the accept date of the EXTERNAL patient :" + date_of_accept);
     }
 
 

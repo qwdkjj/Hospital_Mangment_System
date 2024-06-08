@@ -9,6 +9,7 @@ public class TreatmentRecord extends Patiants
     private double treatment_cost;
     private String treatment_date;
     private int department_id_of_internal_treatment;
+    //private int num_of_patients_in_particular_department;
 
 
     Doctor treating_doctor = new Doctor();
@@ -80,7 +81,7 @@ public class TreatmentRecord extends Patiants
             {
                 if(department_id_of_internal_treatment==d.getDepartmentId())
                 {
-                    System.out.println("entre the responsiple Doctor name of the patient");
+                    System.out.println("entre the responsiple General_Doctor name of the patient");
                     String n=in.next();
                     if(n.equals(d.getName()))
                         doctor_internal_respons.add(d);
@@ -91,7 +92,7 @@ public class TreatmentRecord extends Patiants
             {
                 if(department_id_of_internal_treatment==deals.getDepartmentId())
                 {
-                    System.out.println("entre the responsiple Doctor name of the patient");
+                    System.out.println("entre the responsiple Dealing_Doctor name of the patient");
                     String n=in.next();
                     if(n.equals(deals.getName()))
                         doctor_internal_respons.add(deals);
@@ -101,7 +102,7 @@ public class TreatmentRecord extends Patiants
             {
                 if(department_id_of_internal_treatment==trains.getDepartmentId())
                 {
-                    System.out.println("entre the responsiple Doctor name of the patient");
+                    System.out.println("entre the responsiple Training_Doctor name of the patient");
                     String n=in.next();
                     if(n.equals(trains.getName()))
                         doctor_internal_respons.add(trains);
@@ -193,7 +194,7 @@ public class TreatmentRecord extends Patiants
         System.out.println("the department_id is :" + department_id_of_internal_treatment);
         System.out.println("the DOCTORS responsiple of the internal patient who has name :" + nam);
         for(Doctor d : doctor_internal_respons)
-          System.out.println(d.toString());
+          System.out.println(" the DR name : " + d.getName());
     }
 
     public void displayExternal()
@@ -202,7 +203,7 @@ public class TreatmentRecord extends Patiants
         System.out.println("the Treatment ID is :" + treatment_id);
         System.out.println("the treatment cost is :" + treatment_cost);
         System.out.println("the treatment date is :" + treatment_date);
-        System.out.println("the clinical_id" + clinical_id);
+        System.out.println("the clinical_id :" + clinical_id);
         System.out.println("the details of doctor who will treat the patient :" +nam+ " is :" + treating_doctor.getName() + " and his specialized is :" + treating_doctor.getSpeciality());
 
     }
@@ -256,18 +257,40 @@ public class TreatmentRecord extends Patiants
     }
 
 
-   /* public void numberOfPatientsInParticularDepartment()
+
+    public void displayAll_Treatment()
     {
-        System.out.println("PLEASE ENTRE THE DEPARTMENT ID TO CALCULATE THE NUMBER Of PATIENT IN THIS DEPARTMENT");
-        int d=in.nextInt();
+        System.out.println("THE EXTERNAL RECORD :");
+        for (TreatmentRecord t:externalRecords)
+        {
+                t.displayExternal();
+        }
+
+        System.out.println();
+        System.out.println("THE ENTERNAL RECORD :");
         for (TreatmentRecord t:internalRecords)
         {
-
+                t.displayInternal();
         }
 
 
 
 
+    }
+
+
+   /*public void numberOfPatientsInParticularDepartment()
+    {
+        System.out.println("PLEASE ENTRE THE DEPARTMENT ID TO CALCULATE THE NUMBER Of PATIENT IN THIS DEPARTMENT");
+        int d=in.nextInt();
+        for (TreatmentRecord t:internalRecords)
+        {
+            if(d==t.getDepartment_id_of_internal_treatment())
+                num_of_patients_in_particular_department++;
+        }
+
+        System.out.println("the number of patient in the department ID : " + d);
+        System.out.println(num_of_patients_in_particular_department);
     }*/
 
 

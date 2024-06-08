@@ -16,7 +16,8 @@ public class Main
         System.out.println("10- if you want to display the internal treatment record entre ");
         System.out.println("11- if you want to display the external treatment record entre ");
         System.out.println("12- if you want to display ALL the treatment records for any particular patient entre ");
-        System.out.println("13- if you want to EXIT ");
+        System.out.println("13- if you want to display ALL the treatment records ");
+        System.out.println("14- if you want to EXIT ");
     }
     public static void main(String[] args)
     {
@@ -82,9 +83,11 @@ public class Main
                 case 12:
                     t1.displayTreatmentRecordsForParticularPatient();
                     break;
-
-
                 case 13:
+                    t1.displayAll_Treatment();
+                    break;
+
+                case 14:
                     System.exit(0);
                     end=false;
                     break;

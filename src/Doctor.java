@@ -96,6 +96,7 @@ public class Doctor
         salary=in.nextInt();
 
         docs.add(new Doctor(name,id,speciality,address,birth,salary,departmentId));
+        System.out.println("the doctor who has name : " + name + " is added successfully !");
     }
 
     public void displayDoctorsFixed()
@@ -112,7 +113,7 @@ public class Doctor
         return "Doctor{" +
                 "name='" + name + '\'' +
                 ", birth='" + birth + '\'' +
-                ", id=" + id +
+                ", id=" + id +'\''+
                 ", department ID='" + departmentId + '\''+
                 ", speciality='" + speciality + '\'' +
                 ", address='" + address + '\'' +
